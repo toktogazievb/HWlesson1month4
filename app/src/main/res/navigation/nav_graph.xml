@@ -25,6 +25,7 @@
         <argument
             android:name="userData"
             app:nullable="true"
+            android:defaultValue="@null"
             app:argType="com.example.hwlesson1month4.data.models.UserData" />
     </fragment>
 

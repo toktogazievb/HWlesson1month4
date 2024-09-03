@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.hwlesson1month4.R
@@ -27,15 +28,23 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btn.setOnClickListener {
-            val name = binding.etName.text.toString()
-            val email = binding.etEmail.text.toString()
-            val password = binding.etPassword.text.toString()
+        setupListener()
 
-            if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
-                val userData = UserData(name, email, password.toInt())
-                val action = MainFragmentDirections.actionMainFragmentToSecondFragment(userData)
-                this.findNavController().navigate(action)
+    }
+
+    private fun setupListener() {
+        val name = binding.etName.text.toString()
+        val email = binding.etEmail.text.toString()
+        val password = binding.etPassword.text.toString()
+        binding.apply {
+            btn.setOnClickListener {
+                if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
+                    val userData = UserData(name, email, password.toInt())
+                    val action = MainFragmentDirections.actionMainFragmentToSecondFragment(userData)
+                    findNavController().navigate(action)
+                } else
+                    Toast.makeText(context, "Неправильно введены данные", Toast.LENGTH_LONG).show()
+
             }
         }
     }

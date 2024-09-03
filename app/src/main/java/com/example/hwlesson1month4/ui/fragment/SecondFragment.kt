@@ -33,7 +33,6 @@ class SecondFragment : Fragment() {
         val userData = args.userData
         if (userData != null) {
             binding.apply {
-
                 txtName.text = userData.name
                 txtEmail.text = userData.email
                 txtPassword.text = userData.password.toString()
