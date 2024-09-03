@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/mainFragment"
+        android:icon="@drawable/ic_login"
+        android:title="LOG IN" />
+    <item
+        android:id="@+id/secondFragment"
+        android:icon="@drawable/ic_info"
+        android:title="ACCOUNT INFO" />
+</menu>
