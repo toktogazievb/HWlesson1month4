@@ -29,23 +29,21 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupListener()
-
     }
 
     private fun setupListener() {
-        val name = binding.etName.text.toString()
-        val email = binding.etEmail.text.toString()
-        val password = binding.etPassword.text.toString()
-        binding.apply {
-            btn.setOnClickListener {
-                if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
-                    val userData = UserData(name, email, password.toInt())
-                    val action = MainFragmentDirections.actionMainFragmentToSecondFragment(userData)
-                    findNavController().navigate(action)
-                } else
-                    Toast.makeText(context, "Неправильно введены данные", Toast.LENGTH_LONG).show()
-
+        binding.btn.setOnClickListener {
+            val name = binding.etName.text.toString()
+            val email = binding.etEmail.text.toString()
+            val password = binding.etPassword.text.toString()
+            if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
+                val userData = UserData(name, email, password.toInt())
+                val action = MainFragmentDirections.actionMainFragmentToSecondFragment(userData)
+                findNavController().navigate(action)
+            } else {
+                Toast.makeText(context, "Неправильно введены данные", Toast.LENGTH_LONG).show()
             }
         }
     }
+
 }

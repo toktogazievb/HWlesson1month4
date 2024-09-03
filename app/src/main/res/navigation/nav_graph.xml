@@ -24,9 +24,13 @@
         tools:layout="@layout/fragment_second">
         <argument
             android:name="userData"
-            app:nullable="true"
             android:defaultValue="@null"
-            app:argType="com.example.hwlesson1month4.data.models.UserData" />
+            app:argType="com.example.hwlesson1month4.data.models.UserData"
+            app:nullable="true" />
     </fragment>
-
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.hwlesson1month4.ui.fragment.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" />
 </navigation>
